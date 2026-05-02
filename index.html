@@ -3,51 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lustro Revestimentos - Acabamentos de Qualidade</title>
+    <title>Lustro Revestimentos | Porcelanatos e Lastras de Alto Padrão</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f4f4f4; color: #333; line-height: 1.6; }
-        header { background: #222; color: #fff; padding: 20px 0; text-align: center; border-bottom: 4px solid #555; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1350&q=80'); 
-                height: 400px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; flex-direction: column; padding: 20px; }
-        .services { padding: 50px 20px; max-width: 1200px; margin: auto; text-align: center; }
-        .service-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card i { font-size: 40px; color: #25d366; margin-bottom: 15px; }
-        .gallery { padding: 50px 20px; background: #ddd; text-align: center; }
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; max-width: 1200px; margin: 30px auto; }
-        .photo-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; }
-        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 18px; display: inline-block; margin-top: 20px; }
-        .whatsapp-fixed { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none; }
-        footer { background: #222; color: white; text-align: center; padding: 20px; }
+        /* Estilos de Luxo - Lustro Revestimentos */
+        :root {
+            --dark-bg: #1a1a1a;
+            --accent-color: #ffffff;
+            --text-gray: #b3b3b3;
+            --whatsapp-green: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background-color: #ffffff; color: #333; line-height: 1.6; }
+        
+        /* Menu / Header */
+        header { background: var(--dark-bg); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
+        .logo-text { font-weight: 700; letter-spacing: 3px; font-size: 1.2rem; }
+
+        /* Seção Principal (Hero) */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); 
+            height: 85vh; background-size: cover; background-position: center; 
+            display: flex; align-items: center; justify-content: center; 
+            color: white; text-align: center; flex-direction: column; padding: 0 10%; 
+        }
+        .hero h1 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; letter-spacing: 2px; }
+        .hero b { font-weight: 800; color: #fff; }
+        .hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 700px; margin-bottom: 30px; }
+
+        /* Botão Orçamento */
+        .btn-premium { 
+            background: white; color: black; padding: 18px 40px; 
+            text-decoration: none; border-radius: 0px; font-weight: bold; 
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.4s;
+            border: 1px solid white;
+        }
+        .btn-premium:hover { background: transparent; color: white; }
+
+        /* Seção de Especialidades */
+        .specialties { padding: 80px 10%; text-align: center; background: #fafafa; }
+        .specialties h2 { margin-bottom: 50px; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
+        .grid-spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .spec-item { padding: 40px; background: white; border: 1px solid #eee; transition: 0.3s; }
+        .spec-item:hover { transform: translateY(-10px); border-color: #333; }
+        .spec-item i { font-size: 40px; margin-bottom: 20px; color: #222; }
+        .spec-item h3 { margin-bottom: 15px; }
+
+        /* Diferencial */
+        .diferencial { background: var(--dark-bg); color: white; padding: 80px 10%; display: flex; align-items: center; flex-wrap: wrap; gap: 40px; }
+        .dif-text { flex: 1; min-width: 300px; }
+        .dif-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .dif-text p { color: var(--text-gray); margin-bottom: 20px; }
+        .dif-image { flex: 1; min-width: 300px; height: 400px; background: url('https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=800&q=80') center/cover; }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float { 
+            position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); 
+            color: white; width: 65px; height: 65px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; 
+        }
+
+        footer { background: #111; color: #555; text-align: center; padding: 40px; font-size: 0.9rem; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <header><h1>Lustro Revestimentos</h1></header>
+
+    <header>
+        <div class="logo-text">LUSTRO REVESTIMENTOS</div>
+        <div style="font-size: 0.8rem; color: var(--text-gray);">FLORIANÓPOLIS E REGIÃO</div>
+    </header>
+
     <section class="hero">
-        <h2>Seu ambiente novo começa aqui!</h2>
-        <p>Qualidade garantida e orçamento rápido para Florianópolis e região.</p>
-        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de um orçamento." class="btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i> SOLICITAR ORÇAMENTO
+        <p>Especialistas em Revestimentos de Luxo</p>
+        <h1><b>Porcelanatos</b> e <b>Lastras</b> de Alto Padrão</h1>
+        <p>Elevamos o nível do seu projeto com acabamentos impecáveis e materiais selecionados. Qualidade superior na entrega e execução.</p>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de solicitar um orçamento sem compromisso para meu projeto." class="btn-premium" target="_blank">
+            Solicitar Orçamento sem Compromisso
         </a>
     </section>
-    <section class="services">
-        <div class="service-cards">
-            <div class="card"><i class="fas fa-tools"></i><h4>Revestimentos</h4><p>Porcelanatos e cerâmicas.</p></div>
-            <div class="card"><i class="fas fa-paint-roller"></i><h4>Acabamentos</h4><p>Massa corrida e cal fino.</p></div>
-            <div class="card"><i class="fas fa-stopwatch"></i><h4>Agilidade</h4><p>Entrega no prazo.</p></div>
+
+    <section class="specialties">
+        <h2>Nossa Expertise</h2>
+        <div class="grid-spec">
+            <div class="spec-item">
+                <i class="fas fa-layer-group"></i>
+                <h3>Lastras</h3>
+                <p>Instalação técnica de grandes formatos, garantindo continuidade visual e sofisticação.</p>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-gem"></i>
+                <h3>Alto Padrão</h3>
+                <p>Trabalhamos com os melhores porcelanatos do mercado para clientes exigentes.</p>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-truck"></i>
+                <h3>Entrega Garantida</h3>
+                <p>Compromisso total com o cronograma da sua obra e limpeza no serviço.</p>
+            </div>
         </div>
     </section>
-    <section class="gallery">
-        <h3>Nosso Portfólio</h3>
-        <div class="photo-grid">
-            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=500&q=60">
-            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=500&q=60">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=60">
+
+    <section class="diferencial">
+        <div class="dif-text">
+            <h2>O Diferencial da <br><b>Lustro Revestimentos</b></h2>
+            <p>Atendendo Florianópolis e região, somos reconhecidos pela precisão no corte e no assentamento. Nosso foco é transformar ambientes com a nobreza dos revestimentos de alto padrão.</p>
+            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Atendimento personalizado</p>
+            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Orçamentos rápidos e detalhados</p>
+            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Mão de obra especializada</p>
         </div>
+        <div class="dif-image"></div>
     </section>
-    <footer><p>&copy; 2026 Lustro Revestimentos</p></footer>
-    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="whatsapp-fixed" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <p>LUSTRO REVESTIMENTOS &copy; 2026 - Qualidade em cada detalhe.</p>
+        <p>Florianópolis, Santa Catarina</p>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
 </body>
 </html>
