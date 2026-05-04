@@ -20,10 +20,16 @@
         /* HEADER E LOGO AJUSTADA */
         header { padding: 60px 20px; text-align: center; }
         .logo-main { 
-            width: 160px; 
-            height: auto; 
-            filter: 
-            margin-bottom: 20px;
+    width: 150px;           /* Largura fixa */
+    height: 150px;          /* Altura igual à largura para ser um círculo perfeito */
+    border-radius: 50%;     /* Deixa arredondado */
+    object-fit: cover;      /* Corta as sobras da imagem para caber no círculo sem esticar */
+    
+    /* Melhora a integração com o fundo */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.2)); 
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Um detalhe sutil de luxo */
+}
         }
         
         /* HERO */
