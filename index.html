@@ -3,147 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lustro Revestimentos | Especialista em Lastras</title>
+    <title>Lustro Revestimentos | Alta Engenharia de Pisos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --brand-gray: #4a4541; /* Cinza amarronzado luxo */
-            --gold-soft: #c5a880; 
-            --white: #ffffff;
-            --overlay: rgba(74, 69, 65, 0.9);
+        /* PALETA DE CORES LUXO: CINZA ACINZENTADO / TAUPE */
+        :root {
+            --bg-color: #3d3935; /* Cinza Nobre (Taupe) */
+            --text-color: #ffffff;
+            --accent: #ffffff;
+            --card-bg: #4a4541;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+        /* HEADER */
+        header { padding: 60px 20px; text-align: center; }
+        .logo-main { width: 150px; height: 150px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); padding: 5px; margin-bottom: 20px; transition: 0.5s; }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--brand-gray); 
-            color: var(--white); 
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* BACKGROUND PERSONALIZADO COM LOGO SUTIL */
-        .bg-texture {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(var(--overlay), var(--overlay)), url('logo lustro.jpeg');
-            background-size: 300px; background-repeat: repeat; opacity: 0.05; z-index: -1;
-        }
-
-        /* NAVEGAÇÃO */
-        nav { padding: 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .nav-logo { width: 100px; border-radius: 50%; }
-
-        /* HERO SECTION */
-        .hero { height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 8vw, 4.5rem); letter-spacing: 10px; margin-bottom: 20px; font-weight: 400; }
-        .hero p { font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; opacity: 0.8; margin-bottom: 40px; }
+        /* HERO */
+        .hero { padding: 0 10% 100px 10%; text-align: center; }
+        .hero h1 { font-weight: 100; font-size: clamp(2.5rem, 7vw, 5rem); letter-spacing: 15px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero p { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; opacity: 0.7; margin-bottom: 40px; }
         
-        .btn-budget {
-            padding: 20px 50px; background: transparent; border: 1px solid var(--white);
-            color: var(--white); text-decoration: none; text-transform: uppercase;
-            letter-spacing: 3px; font-weight: 600; transition: 0.5s;
+        .btn-cta { 
+            display: inline-block; padding: 22px 60px; border: 1px solid var(--accent); 
+            color: var(--accent); text-decoration: none; text-transform: uppercase; 
+            letter-spacing: 4px; font-size: 0.8rem; font-weight: 600; transition: 0.4s;
         }
-        .btn-budget:hover { background: var(--white); color: var(--brand-gray); }
+        .btn-cta:hover { background: var(--accent); color: var(--bg-color); }
 
-        /* GALERIA DE SERVIÇOS (FOTOS REAIS) */
-        .services { padding: 100px 5%; background: var(--white); color: var(--brand-gray); }
-        .section-title { text-align: center; margin-bottom: 80px; }
-        .section-title h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; }
-        .section-title div { width: 60px; height: 2px; background: var(--brand-gray); margin: 20px auto; }
+        /* SEÇÃO DE DIFERENCIAIS (LIMPEZA/COMPROMISSO) */
+        .info-bar { background: var(--card-bg); padding: 50px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .info-item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; color: rgba(255,255,255,0.5); }
+        .info-item p { font-weight: 300; font-size: 1.1rem; }
 
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { position: relative; overflow: hidden; background: #000; border-radius: 2px; }
-        .service-card img { width: 100%; height: 450px; object-fit: cover; transition: 1s; opacity: 0.9; }
-        .service-card:hover img { transform: scale(1.1); opacity: 1; }
+        /* GALERIA DE SERVIÇOS REAIS */
+        .work { padding: 100px 5%; }
+        .work h2 { text-align: center; font-weight: 100; font-size: 2rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 60px; }
         
-        .service-info { 
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white;
-        }
-        .service-info h4 { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
-
-        /* FORMULÁRIO / CONTATO */
-        .contact-area { padding: 100px 10%; text-align: center; }
-        .contact-area h3 { font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 30px; }
-        .contact-area p { margin-bottom: 50px; opacity: 0.7; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-        /* FOOTER */
-        footer { padding: 50px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; letter-spacing: 2px; }
-
-        /* WHATSAPP FLOAT */
-        .ws-float { 
-            position: fixed; bottom: 40px; right: 40px; background: #25d366; 
-            width: 65px; height: 65px; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; color: white; 
-            font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1000;
-        }
+        .grid-work { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .work-card { background: var(--card-bg); overflow: hidden; position: relative; aspect-ratio: 1/1; cursor: pointer; }
+        .work-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1); filter: grayscale(30%); }
+        .work-card:hover img { transform: scale(1.1); filter: grayscale(0%); }
         
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+        .work-label { position: absolute; bottom: 30px; left: 30px; border-left: 2px solid white; padding-left: 15px; }
+        .work-label span { display: block; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
+        .work-label b { font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+
+        /* RODAPÉ E CONTATO */
+        .final-cta { padding: 150px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .final-cta h2 { font-weight: 100; font-size: 2.5rem; margin-bottom: 40px; letter-spacing: 5px; }
+
+        footer { padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 4px; opacity: 0.4; }
+
+        /* WHATSAPP */
+        .ws-button { position: fixed; bottom: 40px; right: 40px; background: #fff; color: #000; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; transition: 0.3s; }
+        .ws-button:hover { transform: scale(1.1); background: #25d366; color: #fff; }
+
+        /* ANIMAÇÃO AO ROLAR */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-    <div class="bg-texture"></div>
-
-    <nav>
-        <img src="logo lustro.jpeg" class="nav-logo" alt="Lustro">
-    </nav>
+    <header>
+        <img src="logo lustro.png" alt="Lustro Revestimentos" class="logo-main">
+    </header>
 
     <section class="hero">
-        <h1>LUSTRO</h1>
-        <p>A perfeição em cada detalhe do seu piso</p>
-        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de solicitar um orçamento para revestimento." class="btn-budget">Solicitar Orçamento</a>
+        <h1>Lustro</h1>
+        <p>Especialistas em Pisos e Lastras</p>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de um orçamento especializado." class="btn-budget btn-cta">Solicitar Orçamento</a>
     </section>
 
-    <section class="services">
-        <div class="section-title">
-            <h2>Nossos Serviços</h2>
-            <div></div>
-            <p>Especialistas em Lastras e Porcelanatos de Alto Padrão em Florianópolis</p>
+    <section class="info-bar">
+        <div class="info-item">
+            <h3>Comprometimento</h3>
+            <p>Engenharia aplicada ao acabamento.</p>
         </div>
-
-        <div class="service-grid">
-            <!-- Galeria usando suas fotos como referência de serviço -->
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.14.jpeg">
-                <div class="service-info"><h4>Assentamento Técnico</h4></div>
-            </div>
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.15.jpeg">
-                <div class="service-info"><h4>Cozinhas em Porcelanato</h4></div>
-            </div>
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.14 (1).jpeg">
-                <div class="service-info"><h4>Grandes Formatos</h4></div>
-            </div>
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.15 (1).jpg">
-                <div class="service-info"><h4>Banheiros de Luxo</h4></div>
-            </div>
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.14 (2).jpeg">
-                <div class="service-info"><h4>Áreas Externas</h4></div>
-            </div>
-            <div class="service-card">
-                <img src="WhatsApp Image 2026-05-04 at 18.25.16.jpeg">
-                <div class="service-info"><h4>Acabamento Fino</h4></div>
-            </div>
+        <div class="info-item">
+            <h3>Limpeza</h3>
+            <p>Obra limpa, execução impecável.</p>
+        </div>
+        <div class="info-item">
+            <h3>Região</h3>
+            <p>Atendimento Premium em Florianópolis.</p>
         </div>
     </section>
 
-    <section class="contact-area">
-        <h3>Transforme seu ambiente</h3>
-        <p>Trabalhamos com mão de obra especializada para garantir que seu investimento em pisos de luxo tenha o resultado esperado.</p>
-        <a href="https://api.whatsapp.com/send?phone=5548984617196" class="btn-budget">Falar com Especialista</a>
+    <section class="work">
+        <h2>Referência em Serviços</h2>
+        <div class="grid-work">
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14.jpeg"><div class="work-label"><span>Serviço</span><b>Assentamento de Lastra</b></div></div>
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.15.jpeg"><div class="work-label"><span>Serviço</span><b>Porcelanato Gourmet</b></div></div>
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (1).jpeg"><div class="work-label"><span>Serviço</span><b>Grandes Formatos</b></div></div>
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.15 (1).jpg"><div class="work-label"><span>Serviço</span><b>Banheiros de Luxo</b></div></div>
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (2).jpeg"><div class="work-label"><span>Serviço</span><b>Áreas Externas</b></div></div>
+            <div class="work-card reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.16.jpeg"><div class="work-label"><span>Serviço</span><b>Detalhamento Técnico</b></div></div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2 class="reveal">Pronto para transformar seu projeto?</h2>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196" class="btn-cta reveal">Falar com Kauã</a>
     </section>
 
     <footer>
-        LUSTRO REVESTIMENTOS &copy; 2026 | FLORIANÓPOLIS - SC
+        LUSTRO REVESTIMENTOS &copy; 2026 | FLORIANÓPOLIS
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="ws-float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="ws-button">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        // Script para animação suave de entrada
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
